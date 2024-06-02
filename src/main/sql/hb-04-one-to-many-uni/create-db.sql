@@ -1,6 +1,6 @@
-DROP SCHEMA IF EXISTS `hb-04-one-to-many-uni`;
+DROP database IF EXISTS `hb-04-one-to-many-uni`;
 
-CREATE SCHEMA `hb-04-one-to-many-uni`;
+CREATE database `hb-04-one-to-many-uni`;
 
 use `hb-04-one-to-many-uni`;
 

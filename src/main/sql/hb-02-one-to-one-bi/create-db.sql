@@ -1,9 +1,3 @@
-DROP SCHEMA IF EXISTS `hb-01-one-to-one-uni`;
-
-CREATE SCHEMA `hb-01-one-to-one-uni`;
-
-use `hb-01-one-to-one-uni`;
-
 SET FOREIGN_KEY_CHECKS = 0;
 
 CREATE TABLE `instructor_detail` (
