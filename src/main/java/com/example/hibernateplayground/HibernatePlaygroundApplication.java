@@ -17,10 +17,14 @@ public class HibernatePlaygroundApplication {
 
     @Bean
     public CommandLineRunner commandLineRunner(AppDAO appDAO) {
-		return runner -> {
-            createInstructor(appDAO);
-		};
-	}
+        return runner -> {
+//            createInstructor(appDAO);
+
+//            findInstructor(appDAO);
+
+            deleteInstructor(appDAO);
+        };
+    }
 
     private void createInstructor(AppDAO appDAO) {
         Instructor instructor = new Instructor("Chad", "Darby", "test.com");
@@ -28,5 +32,15 @@ public class HibernatePlaygroundApplication {
         InstructorDetail instructorDetail = new InstructorDetail("https://sample.com", "Luv 2 code!!!");
         instructor.setInstructorDetail(instructorDetail);
         appDAO.save(instructor);
+    }
+
+    private void findInstructor(AppDAO appDAO) {
+        Instructor instructor = appDAO.findInstructorById(5);
+        System.out.println("instructor: " + instructor);
+        System.out.println("instructor detail: " + instructor.getInstructorDetail());
+    }
+
+    private void deleteInstructor(AppDAO appDAO) {
+        appDAO.deleteInstructorById(1);
     }
 }
