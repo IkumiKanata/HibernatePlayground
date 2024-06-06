@@ -1,7 +1,3 @@
-DROP database IF EXISTS `hb-04-one-to-many-uni`;
-
-CREATE database `hb-04-one-to-many-uni`;
-
 use `hb-04-one-to-many-uni`;
 
 SET FOREIGN_KEY_CHECKS = 0;
