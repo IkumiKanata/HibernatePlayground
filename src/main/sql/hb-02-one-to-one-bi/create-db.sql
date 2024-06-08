@@ -1,3 +1,7 @@
+
+create database hb_02one_to_one_bi;
+use hb_02one_to_one_bi;
+
 SET FOREIGN_KEY_CHECKS = 0;
 
 CREATE TABLE `instructor_detail` (
