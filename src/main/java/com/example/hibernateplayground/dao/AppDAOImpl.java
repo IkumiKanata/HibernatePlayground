@@ -1,6 +1,7 @@
 package com.example.hibernateplayground.dao;
 
 import com.example.hibernateplayground.entity.Instructor;
+import com.example.hibernateplayground.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,6 +16,7 @@ public class AppDAOImpl implements AppDAO {
     public AppDAOImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
+
     @Override
     @Transactional
     public void save(Instructor instructor) {
@@ -30,5 +32,10 @@ public class AppDAOImpl implements AppDAO {
     @Transactional
     public void deleteInstructorById(int id) {
         entityManager.remove(entityManager.find(Instructor.class, id));
+    }
+
+    @Override
+    public InstructorDetail findInstructorDetailById(int id) {
+        return entityManager.find(InstructorDetail.class, id);
     }
 }

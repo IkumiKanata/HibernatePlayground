@@ -1,6 +1,7 @@
 package com.example.hibernateplayground.dao;
 
 import com.example.hibernateplayground.entity.Instructor;
+import com.example.hibernateplayground.entity.InstructorDetail;
 
 public interface AppDAO {
     void save(Instructor instructor);
@@ -8,4 +9,6 @@ public interface AppDAO {
     Instructor findInstructorById(int id);
 
     void deleteInstructorById(int id);
+
+    InstructorDetail findInstructorDetailById(int id);
 }
