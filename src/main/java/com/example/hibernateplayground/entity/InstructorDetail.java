@@ -10,7 +10,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Table(name = "instructor_detail")
 public class InstructorDetail {
 
@@ -33,5 +32,14 @@ public class InstructorDetail {
     public InstructorDetail(String url, String hobby) {
         this.youtubeChannel = url;
         this.hobby = hobby;
+    }
+
+    @Override
+    public String toString() {
+        return "InstructorDetail{" +
+                "id=" + id +
+                ", youtubeChannel='" + youtubeChannel + '\'' +
+                ", hobby='" + hobby + '\'' +
+                '}';
     }
 }

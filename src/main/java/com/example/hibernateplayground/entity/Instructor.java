@@ -12,7 +12,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @Setter
 @Getter
-@ToString
 public class Instructor {
 
     @Id
@@ -36,5 +35,15 @@ public class Instructor {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Instructor{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
