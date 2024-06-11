@@ -1,6 +1,6 @@
 
-create database hb_02one_to_one_bi;
-use hb_02one_to_one_bi;
+create database hb_02_one_to_one_bi;
+use hb_02_one_to_one_bi;
 
 SET FOREIGN_KEY_CHECKS = 0;
 
