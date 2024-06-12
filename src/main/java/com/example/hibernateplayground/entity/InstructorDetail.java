@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Entity
 @Getter
@@ -25,7 +24,6 @@ public class InstructorDetail {
     private String hobby;
 
 
-    //
     @OneToOne(mappedBy = "instructorDetail", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Instructor instructor;
 
@@ -43,4 +41,5 @@ public class InstructorDetail {
                 ", hobby='" + hobby + '\'' +
                 '}';
     }
+
 }
