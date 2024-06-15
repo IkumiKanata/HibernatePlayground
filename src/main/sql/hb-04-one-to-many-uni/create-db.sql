@@ -1,5 +1,3 @@
-use `hb-04-one-to-many-uni`;
-
 SET FOREIGN_KEY_CHECKS = 0;
 
 CREATE TABLE `instructor_detail` (
