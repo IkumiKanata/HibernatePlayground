@@ -1,6 +1,7 @@
 package com.example.hibernateplayground;
 
 import com.example.hibernateplayground.dao.AppDAO;
+import com.example.hibernateplayground.entity.Course;
 import com.example.hibernateplayground.entity.Instructor;
 import com.example.hibernateplayground.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -26,10 +27,13 @@ public class HibernatePlaygroundApplication {
 
 //            findInstructorDetail(appDAO);
 
-            deleteInstructorDetail(appDAO, 3);
+//            deleteInstructorDetail(appDAO, 3);
+
+            createInstructorWithCourses(appDAO);
 
         };
     }
+
 
     private void createInstructor(AppDAO appDAO) {
         Instructor instructor = new Instructor("Chad", "Darby", "test.com");
@@ -58,5 +62,18 @@ public class HibernatePlaygroundApplication {
     private void deleteInstructorDetail(AppDAO appDAO, int id) {
 
         appDAO.deleteInstructorDetailById(id);
+    }
+
+    private void createInstructorWithCourses(AppDAO appDAO) {
+        Instructor instructor = new Instructor("Susan", "Darby", "test.com");
+
+        InstructorDetail instructorDetail = new InstructorDetail("https://sample.com", "Love to code!!!");
+        instructor.setInstructorDetail(instructorDetail);
+
+        var course = new Course("Air Guitar - The Ultimate Guide");
+        var course2 = new Course("The Pinball Masterclass");
+        instructor.addCourse(course);
+        instructor.addCourse(course2);
+        appDAO.save(instructor);
     }
 }
