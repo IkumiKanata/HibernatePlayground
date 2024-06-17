@@ -70,7 +70,7 @@ public class HibernatePlaygroundApplication {
         InstructorDetail instructorDetail = new InstructorDetail("https://sample.com", "Love to code!!!");
         instructor.setInstructorDetail(instructorDetail);
 
-        var course = new Course("Air Guitar - The Ultimate Guide");
+        var course = new Course("Air Guitar");
         var course2 = new Course("The Pinball Masterclass");
         instructor.addCourse(course);
         instructor.addCourse(course2);
