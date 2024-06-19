@@ -31,8 +31,17 @@ public class HibernatePlaygroundApplication {
 
 //            deleteInstructorDetail(appDAO, 3);
 
-            findInstructorWithCourses(appDAO);
+//            findInstructorWithCourses(appDAO);
+
+            findInstructorWithCoursesJoinFetch(appDAO);
         };
+    }
+
+    private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {
+        Instructor instructor = appDAO.findInstructorByIdJoinFetch(1);
+        System.out.println("instructor: " + instructor);
+        System.out.println("courses: " + instructor.getCourses());
+        System.out.println("Detail: "+ instructor.getInstructorDetail());
     }
 
     private void createInstructor(AppDAO appDAO) {
