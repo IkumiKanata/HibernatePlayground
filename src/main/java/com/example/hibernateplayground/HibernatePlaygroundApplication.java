@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class HibernatePlaygroundApplication {
 
@@ -32,20 +34,6 @@ public class HibernatePlaygroundApplication {
             findInstructorWithCourses(appDAO);
         };
     }
-
-    private void findInstructorWithCourses(AppDAO appDAO) {
-        int id = 1;
-        System.out.println("Finding instructor id: " + id);
-
-        Instructor tempInstructor = appDAO.findInstructorById(id);
-
-        System.out.println("tempInstructor: " + tempInstructor);
-        System.out.println("the associated courses: " + tempInstructor.getCourses());
-
-        System.out.println("Done!");
-
-    }
-
 
     private void createInstructor(AppDAO appDAO) {
         Instructor instructor = new Instructor("Chad", "Darby", "test.com");
@@ -87,5 +75,12 @@ public class HibernatePlaygroundApplication {
         instructor.addCourse(course);
         instructor.addCourse(course2);
         appDAO.save(instructor);
+    }
+
+    private void findInstructorWithCourses(AppDAO appDAO) {
+        Instructor instructor = appDAO.findInstructorById(1);
+        List<Course> courses = appDAO.findCoursesByInstructorId(1);
+        System.out.println("instructor: " + instructor);
+        System.out.println("courses: " + courses);
     }
 }
