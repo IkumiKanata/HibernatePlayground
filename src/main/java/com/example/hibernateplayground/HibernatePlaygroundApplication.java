@@ -33,8 +33,16 @@ public class HibernatePlaygroundApplication {
 
 //            findInstructorWithCourses(appDAO);
 
-            findInstructorWithCoursesJoinFetch(appDAO);
+//            findInstructorWithCoursesJoinFetch(appDAO);
+
+            updateInstructor(appDAO);
         };
+    }
+
+    private void updateInstructor(AppDAO appDAO) {
+        Instructor instructor = appDAO.findInstructorById(1);
+        instructor.setFirstName("Ikumi");
+        appDAO.update(instructor);
     }
 
     private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {
