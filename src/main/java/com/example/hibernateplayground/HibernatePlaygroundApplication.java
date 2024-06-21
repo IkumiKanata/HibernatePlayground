@@ -25,7 +25,7 @@ public class HibernatePlaygroundApplication {
 
 //            findInstructor(appDAO);
 
-//            deleteInstructor(appDAO);
+            deleteInstructor(appDAO);
 
 //            findInstructorDetail(appDAO);
 
@@ -35,7 +35,7 @@ public class HibernatePlaygroundApplication {
 
 //            findInstructorWithCoursesJoinFetch(appDAO);
 
-            updateInstructor(appDAO);
+//            updateInstructor(appDAO);
         };
     }
 
