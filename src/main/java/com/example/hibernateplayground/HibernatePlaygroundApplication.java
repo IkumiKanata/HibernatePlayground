@@ -45,6 +45,12 @@ public class HibernatePlaygroundApplication {
         appDAO.update(instructor);
     }
 
+    private void updateCourse(AppDAO appDAO) {
+        Course course = appDAO.findCourseById(1);
+        course.setTitle("Air Guitar 101");
+        appDAO.update(course);
+    }
+
     private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {
         Instructor instructor = appDAO.findInstructorByIdJoinFetch(1);
         System.out.println("instructor: " + instructor);

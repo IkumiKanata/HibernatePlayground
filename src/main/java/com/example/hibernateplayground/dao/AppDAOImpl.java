@@ -43,6 +43,7 @@ public class AppDAOImpl implements AppDAO {
         return entityManager.find(InstructorDetail.class, id);
     }
 
+
     @Override
     @Transactional
     public void deleteInstructorDetailById(int id) {
@@ -70,6 +71,17 @@ public class AppDAOImpl implements AppDAO {
     @Transactional
     public void update(Instructor instructor) {
         entityManager.merge(instructor);
+    }
+
+    @Override
+    public Course findCourseById(int id) {
+        return entityManager.find(Course.class, id);
+    }
+
+    @Override
+    @Transactional
+    public void update(Course course) {
+        entityManager.merge(course);
     }
 
 
