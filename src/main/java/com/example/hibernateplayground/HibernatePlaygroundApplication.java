@@ -47,7 +47,7 @@ public class HibernatePlaygroundApplication {
 
     private void updateCourse(AppDAO appDAO) {
         Course course = appDAO.findCourseById(1);
-        course.setTitle("Air Guitar 101");
+        course.setTitle("Test Course");
         appDAO.update(course);
     }
 
@@ -83,8 +83,8 @@ public class HibernatePlaygroundApplication {
     }
 
     private void deleteInstructorDetail(AppDAO appDAO, int id) {
-
         appDAO.deleteInstructorDetailById(id);
+
     }
 
     private void createInstructorWithCourses(AppDAO appDAO) {
