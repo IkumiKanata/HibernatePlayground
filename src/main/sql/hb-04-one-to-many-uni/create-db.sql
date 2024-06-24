@@ -1,5 +1,7 @@
 SET FOREIGN_KEY_CHECKS = 0;
 
+DROP TABLE IF EXISTS `instructor_detail`;
+
 CREATE TABLE `instructor_detail` (
   `id` int NOT NULL AUTO_INCREMENT,
   `youtube_channel` varchar(128) DEFAULT NULL,
@@ -7,6 +9,7 @@ CREATE TABLE `instructor_detail` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `instructor`;
 
 CREATE TABLE `instructor` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -20,6 +23,7 @@ CREATE TABLE `instructor` (
   REFERENCES `instructor_detail` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `course`;
 
 CREATE TABLE `course` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -39,6 +43,7 @@ CREATE TABLE `course` (
   ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `review`;
 
 CREATE TABLE `review` (
   `id` int NOT NULL AUTO_INCREMENT,
