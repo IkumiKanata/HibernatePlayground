@@ -4,6 +4,7 @@ import com.example.hibernateplayground.dao.AppDAO;
 import com.example.hibernateplayground.entity.Course;
 import com.example.hibernateplayground.entity.Instructor;
 import com.example.hibernateplayground.entity.InstructorDetail;
+import com.example.hibernateplayground.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,7 +26,7 @@ public class HibernatePlaygroundApplication {
 
 //            findInstructor(appDAO);
 
-            deleteInstructor(appDAO);
+//            deleteInstructor(appDAO);
 
 //            findInstructorDetail(appDAO);
 
@@ -36,7 +37,32 @@ public class HibernatePlaygroundApplication {
 //            findInstructorWithCoursesJoinFetch(appDAO);
 
 //            updateInstructor(appDAO);
+
+//            createCourseAndReviews(appDAO);
+
+//            retrieveCourseAndReviewsByCourseId(appDAO);
+            
+            deleteCourseAndReviews(appDAO);
         };
+    }
+
+    private void deleteCourseAndReviews(AppDAO appDAO) {
+        appDAO.deleteCourseById(10);
+
+    }
+
+    private void retrieveCourseAndReviewsByCourseId(AppDAO appDAO) {
+        Course course = appDAO.findCourseAndReviewsByCourseId(10);
+        System.out.println("course: " + course);
+        System.out.println("reviews: " + course.getReviews());
+    }
+
+    private void createCourseAndReviews(AppDAO appDAO) {
+        Course course = new Course("Test Course");
+        course.addReview(new Review("Great course!"));
+        course.addReview(new Review("Great course!!"));
+        course.addReview(new Review("Great course!!!"));
+        appDAO.save(course);
     }
 
     private void updateInstructor(AppDAO appDAO) {
