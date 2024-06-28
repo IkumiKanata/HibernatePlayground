@@ -1,10 +1,7 @@
 package com.example.hibernateplayground;
 
 import com.example.hibernateplayground.dao.AppDAO;
-import com.example.hibernateplayground.entity.Course;
-import com.example.hibernateplayground.entity.Instructor;
-import com.example.hibernateplayground.entity.InstructorDetail;
-import com.example.hibernateplayground.entity.Review;
+import com.example.hibernateplayground.entity.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -41,9 +38,25 @@ public class HibernatePlaygroundApplication {
 //            createCourseAndReviews(appDAO);
 
 //            retrieveCourseAndReviewsByCourseId(appDAO);
-            
-            deleteCourseAndReviews(appDAO);
+
+//            deleteCourseAndReviews(appDAO);
+
+            createCourseAndStudents(appDAO);
         };
+
+    }
+
+    private void createCourseAndStudents(AppDAO appDAO) {
+        Course course = new Course("Test Course");
+        var stundent = new Student("John", "Doe", "email");
+        var stundent2 = new Student("John2", "Doe2", "email2");
+
+        course.addStudent(stundent);
+        course.addStudent(stundent2);
+
+        appDAO.save(course);
+
+
     }
 
     private void deleteCourseAndReviews(AppDAO appDAO) {
@@ -81,7 +94,7 @@ public class HibernatePlaygroundApplication {
         Instructor instructor = appDAO.findInstructorByIdJoinFetch(1);
         System.out.println("instructor: " + instructor);
         System.out.println("courses: " + instructor.getCourses());
-        System.out.println("Detail: "+ instructor.getInstructorDetail());
+        System.out.println("Detail: " + instructor.getInstructorDetail());
     }
 
     private void createInstructor(AppDAO appDAO) {
