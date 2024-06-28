@@ -41,8 +41,17 @@ public class HibernatePlaygroundApplication {
 
 //            deleteCourseAndReviews(appDAO);
 
-            createCourseAndStudents(appDAO);
+//            createCourseAndStudents(appDAO);
+
+            findCourseAndStudentsByCourseId(appDAO);
         };
+
+    }
+
+    private void findCourseAndStudentsByCourseId(AppDAO appDAO) {
+        Course course = appDAO.findCourseAndStudentsByStudentId(10);
+        System.out.println("course: " + course);
+        System.out.println("students: " + course.getStudents());
 
     }
 
