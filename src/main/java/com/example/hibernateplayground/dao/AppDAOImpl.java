@@ -3,6 +3,7 @@ package com.example.hibernateplayground.dao;
 import com.example.hibernateplayground.entity.Course;
 import com.example.hibernateplayground.entity.Instructor;
 import com.example.hibernateplayground.entity.InstructorDetail;
+import com.example.hibernateplayground.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,10 +110,23 @@ public class AppDAOImpl implements AppDAO {
     }
 
     @Override
-    public Course findCourseAndStudentsByStudentId(int id) {
+    public Course findCourseAndStudentsByCourseId(int id) {
         return entityManager.createQuery("select c from Course c join fetch c.students where c.id = :data", Course.class)
                 .setParameter("data", id)
                 .getSingleResult();
+    }
+
+    @Override
+    public Student findStudentAndCoursesByStudentId(int id) {
+        return entityManager.createQuery("select s from Student s join fetch s.courses where s.id = :data", Student.class)
+                .setParameter("data", id)
+                .getSingleResult();
+    }
+
+    @Override
+    @Transactional
+    public void update(Student student) {
+        entityManager.merge(student);
     }
 
 

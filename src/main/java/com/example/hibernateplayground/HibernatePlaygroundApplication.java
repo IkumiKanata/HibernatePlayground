@@ -43,16 +43,35 @@ public class HibernatePlaygroundApplication {
 
 //            createCourseAndStudents(appDAO);
 
-            findCourseAndStudentsByCourseId(appDAO);
+//            findCourseAndStudentsByCourseId(appDAO);
+//            findStudentAndCoursesByStudentId(appDAO);
+
+            addMoreCoursesForStudent(appDAO);
+
+
         };
 
     }
 
+    private void addMoreCoursesForStudent(AppDAO appDAO) {
+        Student student = appDAO.findStudentAndCoursesByStudentId(1);
+        var course = new Course("Test Course 2");
+        var course2 = new Course("Test Course 3");
+        student.addCourse(course);
+        student.addCourse(course2);
+        appDAO.update(student);
+    }
+
     private void findCourseAndStudentsByCourseId(AppDAO appDAO) {
-        Course course = appDAO.findCourseAndStudentsByStudentId(10);
+        Course course = appDAO.findCourseAndStudentsByCourseId(10);
         System.out.println("course: " + course);
         System.out.println("students: " + course.getStudents());
+    }
 
+    private void findStudentAndCoursesByStudentId(AppDAO appDAO) {
+        Student student = appDAO.findStudentAndCoursesByStudentId(1);
+        System.out.println("student: " + student);
+        System.out.println("courses: " + student.getCourses());
     }
 
     private void createCourseAndStudents(AppDAO appDAO) {

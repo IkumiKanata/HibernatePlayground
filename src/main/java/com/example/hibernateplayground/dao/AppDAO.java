@@ -3,6 +3,7 @@ package com.example.hibernateplayground.dao;
 import com.example.hibernateplayground.entity.Course;
 import com.example.hibernateplayground.entity.Instructor;
 import com.example.hibernateplayground.entity.InstructorDetail;
+import com.example.hibernateplayground.entity.Student;
 
 import java.util.List;
 
@@ -33,5 +34,9 @@ public interface AppDAO {
 
     void deleteCourseById(int i);
 
-    Course findCourseAndStudentsByStudentId(int id);
+    Course findCourseAndStudentsByCourseId(int id);
+
+    Student findStudentAndCoursesByStudentId(int id);
+
+    void update(Student student);
 }
